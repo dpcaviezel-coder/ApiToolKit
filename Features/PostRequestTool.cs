@@ -1,3 +1,4 @@
+
 using System;
 using System.Net.Http;
 using System.Text;
@@ -28,6 +29,8 @@ namespace ApiToolkit.Features
             {
                 var response = await client.PostAsync(fullUrl, content);
                 var responseBody = await response.Content.ReadAsStringAsync();
+
+                responseBody = JsonFormatter.TryFormat(responseBody);
 
                 Console.WriteLine($"\nStatus: {response.StatusCode}");
                 Console.WriteLine("\nResponse:");

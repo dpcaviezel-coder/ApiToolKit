@@ -1,4 +1,5 @@
 
+
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -24,6 +25,8 @@ namespace ApiToolkit.Features
                 var response = await client.GetAsync(fullUrl);
                 var content = await response.Content.ReadAsStringAsync();
 
+                content = JsonFormatter.TryFormat(content);
+
                 Console.WriteLine($"\nStatus: {response.StatusCode}");
                 Console.WriteLine("\nResponse:");
                 Console.WriteLine(content);
@@ -37,4 +40,3 @@ namespace ApiToolkit.Features
         }
     }
 }
-

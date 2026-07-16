@@ -28,8 +28,13 @@ namespace ApiToolkit.Features
                 var response = await client.GetAsync(fullUrl);
                 stopwatch.Stop();
 
+                var content = await response.Content.ReadAsStringAsync();
+                content = JsonFormatter.TryFormat(content);
+
                 Console.WriteLine($"\nStatus: {response.StatusCode}");
                 Console.WriteLine($"Response Time: {stopwatch.ElapsedMilliseconds} ms");
+                Console.WriteLine("\nResponse:");
+                Console.WriteLine(content);
 
                 Logger.Write($"TIME {fullUrl} → {stopwatch.ElapsedMilliseconds} ms");
             }
