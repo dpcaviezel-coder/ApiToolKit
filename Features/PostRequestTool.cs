@@ -1,3 +1,4 @@
+
 using System;
 using System.Net.Http;
 using System.Text;
@@ -9,8 +10,12 @@ namespace ApiToolkit.Features
     {
         public static async Task Run()
         {
-            Console.Write("Enter a URL to POST to: ");
-            string url = Console.ReadLine();
+            Console.Write("Enter a URL path (example: /posts): ");
+            string path = Console.ReadLine();
+
+            string fullUrl = EnvironmentProfiles.Current != null
+                ? EnvironmentProfiles.Current.BaseUrl + path
+                : path;
 
             Console.WriteLine("\nEnter JSON body (single line):");
             string jsonBody = Console.ReadLine();
@@ -20,15 +25,14 @@ namespace ApiToolkit.Features
 
             try
             {
-                var response = await client.PostAsync(url, content);
+                var response = await client.PostAsync(fullUrl, content);
                 var responseBody = await response.Content.ReadAsStringAsync();
 
                 Console.WriteLine($"\nStatus: {response.StatusCode}");
                 Console.WriteLine("\nResponse:");
                 Console.WriteLine(responseBody);
 
-                // LOGGING
-                Logger.Write($"POST {url} → {response.StatusCode}");
+                Logger.Write($"POST {fullUrl} → {response.StatusCode}");
             }
             catch (Exception ex)
             {

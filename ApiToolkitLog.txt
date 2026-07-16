@@ -1,2 +1,11 @@
 [2026-07-16 12:30:39] TIME https://jsonplaceholder.typicode.com/users/1 → 240 ms
 [2026-07-16 12:31:22] TIME https://pokeapi.co/api/v2/pokemon/ditto → 239 ms
+[2026-07-16 12:49:49] ENVIRONMENT CHANGED → Development
+[2026-07-16 12:50:21] ENVIRONMENT CHANGED → QA
+[2026-07-16 12:51:15] ENVIRONMENT CHANGED → Development
+[2026-07-16 12:51:48] GET https://jsonplaceholder.typicode.com/users/1 → OK
+[2026-07-16 12:52:04] ENVIRONMENT CHANGED → QA
+[2026-07-16 12:52:23] GET https://httpbin.org/get → OK
+[2026-07-16 12:53:02] ENVIRONMENT CHANGED → Development
+[2026-07-16 12:54:12] POST https://jsonplaceholder.typicode.com/posts → Created
+[2026-07-16 12:55:14] VALIDATE https://jsonplaceholder.typicode.com/users/1 → Expected 200, Actual 200

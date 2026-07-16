@@ -1,4 +1,3 @@
-
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -9,8 +8,12 @@ namespace ApiToolkit.Features
     {
         public static async Task Run()
         {
-            Console.Write("Enter a URL to test: ");
-            string url = Console.ReadLine();
+            Console.Write("Enter a URL path (example: /users/1): ");
+            string path = Console.ReadLine();
+
+            string fullUrl = EnvironmentProfiles.Current != null
+                ? EnvironmentProfiles.Current.BaseUrl + path
+                : path;
 
             Console.Write("Enter expected status code (e.g., 200): ");
             string expectedInput = Console.ReadLine();
@@ -25,23 +28,18 @@ namespace ApiToolkit.Features
 
             try
             {
-                var response = await client.GetAsync(url);
+                var response = await client.GetAsync(fullUrl);
                 int actualStatus = (int)response.StatusCode;
 
                 Console.WriteLine($"\nExpected: {expectedStatus}");
                 Console.WriteLine($"Actual:   {actualStatus}");
 
                 if (actualStatus == expectedStatus)
-                {
                     Console.WriteLine("\nResult: PASS");
-                }
                 else
-                {
                     Console.WriteLine("\nResult: FAIL");
-                }
 
-                // LOGGING
-                Logger.Write($"VALIDATE {url} → Expected {expectedStatus}, Actual {actualStatus}");
+                Logger.Write($"VALIDATE {fullUrl} → Expected {expectedStatus}, Actual {actualStatus}");
             }
             catch (Exception ex)
             {

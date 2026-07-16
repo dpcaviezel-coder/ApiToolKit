@@ -9,22 +9,25 @@ namespace ApiToolkit.Features
     {
         public static async Task Run()
         {
-            Console.Write("Enter a URL to GET: ");
-            string url = Console.ReadLine();
+            Console.Write("Enter a URL path (example: /users/1): ");
+            string path = Console.ReadLine();
+
+            string fullUrl = EnvironmentProfiles.Current != null
+                ? EnvironmentProfiles.Current.BaseUrl + path
+                : path;
 
             using var client = new HttpClient();
 
             try
             {
-                var response = await client.GetAsync(url);
+                var response = await client.GetAsync(fullUrl);
                 var content = await response.Content.ReadAsStringAsync();
 
                 Console.WriteLine($"\nStatus: {response.StatusCode}");
                 Console.WriteLine("\nResponse:");
                 Console.WriteLine(content);
 
-                // LOGGING
-                Logger.Write($"GET {url} → {response.StatusCode}");
+                Logger.Write($"GET {fullUrl} → {response.StatusCode}");
             }
             catch (Exception ex)
             {
