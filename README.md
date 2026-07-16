@@ -1,9 +1,9 @@
 # API Toolkit
+A beginner-friendly C# toolkit for testing APIs.
 
-A beginner-friendly C# toolkit for testing APIs.  
-Includes:
-
-- Feature 1: GET Request Tool  
-- Feature 2: POST Request Tool  
+Features:
+1. GET Request Tool
+2. POST Request Tool
+3. Status Code Validator
 
 More features coming soon.
