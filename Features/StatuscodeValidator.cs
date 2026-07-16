@@ -25,6 +25,7 @@ namespace ApiToolkit.Features
             }
 
             using var client = new HttpClient();
+            HeaderManager.ApplyHeaders(client);
 
             try
             {

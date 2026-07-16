@@ -1,4 +1,3 @@
-
 using System;
 using System.Net.Http;
 using System.Text;
@@ -21,6 +20,8 @@ namespace ApiToolkit.Features
             string jsonBody = Console.ReadLine();
 
             using var client = new HttpClient();
+            HeaderManager.ApplyHeaders(client);
+
             var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
 
             try

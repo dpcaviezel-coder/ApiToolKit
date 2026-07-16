@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.IO;
 using System.Threading.Tasks;
 using ApiToolkit.Features;
@@ -14,6 +15,7 @@ class Program
         Console.WriteLine("4. Response Time Checker");
         Console.WriteLine("5. View Log File");
         Console.WriteLine("6. Change Environment");
+        Console.WriteLine("7. Manage Headers");
 
         Console.Write("Choose an option: ");
         string choice = Console.ReadLine();
@@ -53,6 +55,41 @@ class Program
 
                 string env = Console.ReadLine();
                 EnvironmentProfiles.SetEnvironment(env);
+                break;
+
+            case "7":
+                Console.WriteLine("\nHeader Manager");
+                Console.WriteLine("1. Add Header");
+                Console.WriteLine("2. Remove Header");
+                Console.WriteLine("3. View Headers");
+                Console.Write("Choose an option: ");
+
+                string hChoice = Console.ReadLine();
+
+                switch (hChoice)
+                {
+                    case "1":
+                        Console.Write("Header key: ");
+                        string key = Console.ReadLine();
+                        Console.Write("Header value: ");
+                        string value = Console.ReadLine();
+                        HeaderManager.AddHeader(key, value);
+                        break;
+
+                    case "2":
+                        Console.Write("Header key to remove: ");
+                        string removeKey = Console.ReadLine();
+                        HeaderManager.RemoveHeader(removeKey);
+                        break;
+
+                    case "3":
+                        HeaderManager.ShowHeaders();
+                        break;
+
+                    default:
+                        Console.WriteLine("Invalid header option.");
+                        break;
+                }
                 break;
 
             default:

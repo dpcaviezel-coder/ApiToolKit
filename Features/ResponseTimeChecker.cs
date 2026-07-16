@@ -1,3 +1,4 @@
+
 using System;
 using System.Diagnostics;
 using System.Net.Http;
@@ -17,6 +18,8 @@ namespace ApiToolkit.Features
                 : path;
 
             using var client = new HttpClient();
+            HeaderManager.ApplyHeaders(client);
+
             var stopwatch = new Stopwatch();
 
             try
