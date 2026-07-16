@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Threading.Tasks;
 using ApiToolkit.Features;
 
@@ -9,6 +10,7 @@ class Program
         Console.WriteLine("API Toolkit");
         Console.WriteLine("1. GET Request");
         Console.WriteLine("2. POST Request");
+        Console.WriteLine("3. Status Code Validator");
         Console.Write("Choose an option: ");
 
         string choice = Console.ReadLine();
@@ -23,11 +25,14 @@ class Program
                 await PostRequestTool.Run();
                 break;
 
+            case "3":
+                await StatusCodeValidator.Run();
+                break;
+
             default:
                 Console.WriteLine("Invalid choice.");
                 break;
         }
     }
 }
-
 

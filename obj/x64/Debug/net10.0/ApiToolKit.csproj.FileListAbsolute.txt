@@ -12,3 +12,4 @@ C:\Users\dpcav\source\repos\ApiToolKit\obj\x64\Debug\net10.0\refint\ApiToolKit.d
 C:\Users\dpcav\source\repos\ApiToolKit\obj\x64\Debug\net10.0\ApiToolKit.pdb
 C:\Users\dpcav\source\repos\ApiToolKit\obj\x64\Debug\net10.0\ApiToolKit.genruntimeconfig.cache
 C:\Users\dpcav\source\repos\ApiToolKit\obj\x64\Debug\net10.0\ref\ApiToolKit.dll
+C:\Users\dpcav\source\repos\ApiToolKit\obj\x64\Debug\net10.0\ApiToolKit.sourcelink.json
