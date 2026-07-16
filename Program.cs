@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Threading.Tasks;
 using ApiToolkit.Features;
 
@@ -11,6 +10,7 @@ class Program
         Console.WriteLine("1. GET Request");
         Console.WriteLine("2. POST Request");
         Console.WriteLine("3. Status Code Validator");
+        Console.WriteLine("4. Response Time Checker");
         Console.Write("Choose an option: ");
 
         string choice = Console.ReadLine();
@@ -29,10 +29,13 @@ class Program
                 await StatusCodeValidator.Run();
                 break;
 
+            case "4":
+                await ResponseTimeChecker.Run();
+                break;
+
             default:
                 Console.WriteLine("Invalid choice.");
                 break;
         }
     }
 }
-
