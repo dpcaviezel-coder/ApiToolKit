@@ -1,28 +1,33 @@
 ﻿using System;
-using System.Net.Http;
 using System.Threading.Tasks;
+using ApiToolkit.Features;
 
 class Program
 {
     static async Task Main()
     {
-        Console.Write("Enter a URL to GET: ");
-        string url = Console.ReadLine();
+        Console.WriteLine("API Toolkit");
+        Console.WriteLine("1. GET Request");
+        Console.WriteLine("2. POST Request");
+        Console.Write("Choose an option: ");
 
-        using var client = new HttpClient();
+        string choice = Console.ReadLine();
 
-        try
+        switch (choice)
         {
-            var response = await client.GetAsync(url);
-            var content = await response.Content.ReadAsStringAsync();
+            case "1":
+                await GetRequestTool.Run();
+                break;
 
-            Console.WriteLine($"\nStatus: {response.StatusCode}");
-            Console.WriteLine("\nResponse:");
-            Console.WriteLine(content);
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"\nError: {ex.Message}");
+            case "2":
+                await PostRequestTool.Run();
+                break;
+
+            default:
+                Console.WriteLine("Invalid choice.");
+                break;
         }
     }
 }
+
+
