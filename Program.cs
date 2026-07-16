@@ -10,6 +10,8 @@ class Program
         while (true)
         {
             Console.WriteLine("\nAPI Toolkit");
+            Console.WriteLine($"Last Status: {StatusBadge.LastStatus}\n");
+
             Console.WriteLine("1. GET Request");
             Console.WriteLine("2. POST Request");
             Console.WriteLine("3. Status Code Validator");
@@ -18,6 +20,8 @@ class Program
             Console.WriteLine("6. Change Environment");
             Console.WriteLine("7. Manage Headers");
             Console.WriteLine("8. Save Last Response");
+            Console.WriteLine("9. View Last Status");
+            Console.WriteLine("10. DELETE Request");
             Console.WriteLine("0. Exit");
 
             Console.Write("Choose an option: ");
@@ -97,6 +101,14 @@ class Program
 
                 case "8":
                     ResponseSaver.Save();
+                    break;
+
+                case "9":
+                    Console.WriteLine($"\nLast Status: {StatusBadge.LastStatus}");
+                    break;
+
+                case "10":
+                    await DeleteRequestTool.Run();
                     break;
 
                 case "0":

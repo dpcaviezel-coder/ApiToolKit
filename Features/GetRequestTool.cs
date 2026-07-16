@@ -1,3 +1,4 @@
+
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -30,10 +31,17 @@ namespace ApiToolkit.Features
                 Console.WriteLine("\nResponse:");
                 Console.WriteLine(content);
 
+                // QA rule: GET must return 200
+                if ((int)response.StatusCode == 200)
+                    StatusBadge.SetPass();
+                else
+                    StatusBadge.SetFail();
+
                 Logger.Write($"GET {fullUrl} → {response.StatusCode}");
             }
             catch (Exception ex)
             {
+                StatusBadge.SetFail();
                 Console.WriteLine($"\nError: {ex.Message}");
             }
         }

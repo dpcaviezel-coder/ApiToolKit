@@ -1,4 +1,3 @@
-
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -22,6 +21,7 @@ namespace ApiToolkit.Features
             if (!int.TryParse(expectedInput, out int expectedStatus))
             {
                 Console.WriteLine("Invalid status code.");
+                StatusBadge.SetFail();
                 return;
             }
 
@@ -37,16 +37,24 @@ namespace ApiToolkit.Features
                 Console.WriteLine($"Actual:   {actualStatus}");
 
                 if (actualStatus == expectedStatus)
+                {
                     Console.WriteLine("\nResult: PASS");
+                    StatusBadge.SetPass();
+                }
                 else
+                {
                     Console.WriteLine("\nResult: FAIL");
+                    StatusBadge.SetFail();
+                }
 
                 Logger.Write($"VALIDATE {fullUrl} → Expected {expectedStatus}, Actual {actualStatus}");
             }
             catch (Exception ex)
             {
+                StatusBadge.SetFail();
                 Console.WriteLine($"\nError: {ex.Message}");
             }
         }
     }
 }
+

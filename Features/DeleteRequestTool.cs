@@ -1,15 +1,14 @@
 using System;
-using System.Diagnostics;
 using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace ApiToolkit.Features
 {
-    public class ResponseTimeChecker
+    public class DeleteRequestTool
     {
         public static async Task Run()
         {
-            Console.Write("Enter a URL path (example: /users/1): ");
+            Console.Write("Enter a URL path (example: /posts/1): ");
             string path = Console.ReadLine();
 
             string fullUrl = EnvironmentProfiles.Current != null
@@ -19,30 +18,26 @@ namespace ApiToolkit.Features
             using var client = new HttpClient();
             HeaderManager.ApplyHeaders(client);
 
-            var stopwatch = new Stopwatch();
-
             try
             {
-                stopwatch.Start();
-                var response = await client.GetAsync(fullUrl);
-                stopwatch.Stop();
-
+                var response = await client.DeleteAsync(fullUrl);
                 var content = await response.Content.ReadAsStringAsync();
+
                 content = JsonFormatter.TryFormat(content);
                 ResponseSaver.LastResponse = content;
 
                 Console.WriteLine($"\nStatus: {response.StatusCode}");
-                Console.WriteLine($"Response Time: {stopwatch.ElapsedMilliseconds} ms");
                 Console.WriteLine("\nResponse:");
                 Console.WriteLine(content);
 
-                // QA rule: must return 200
-                if ((int)response.StatusCode == 200)
+                // QA rule: DELETE must return 200 or 204
+                int code = (int)response.StatusCode;
+                if (code == 200 || code == 204)
                     StatusBadge.SetPass();
                 else
                     StatusBadge.SetFail();
 
-                Logger.Write($"TIME {fullUrl} → {stopwatch.ElapsedMilliseconds} ms");
+                Logger.Write($"DELETE {fullUrl} → {response.StatusCode}");
             }
             catch (Exception ex)
             {

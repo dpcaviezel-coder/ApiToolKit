@@ -36,10 +36,17 @@ namespace ApiToolkit.Features
                 Console.WriteLine("\nResponse:");
                 Console.WriteLine(responseBody);
 
+                // QA rule: POST must return 201
+                if ((int)response.StatusCode == 201)
+                    StatusBadge.SetPass();
+                else
+                    StatusBadge.SetFail();
+
                 Logger.Write($"POST {fullUrl} → {response.StatusCode}");
             }
             catch (Exception ex)
             {
+                StatusBadge.SetFail();
                 Console.WriteLine($"\nError: {ex.Message}");
             }
         }
