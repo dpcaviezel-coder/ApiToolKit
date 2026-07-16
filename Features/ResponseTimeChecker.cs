@@ -23,6 +23,9 @@ namespace ApiToolkit.Features
 
                 Console.WriteLine($"\nStatus: {response.StatusCode}");
                 Console.WriteLine($"Response Time: {stopwatch.ElapsedMilliseconds} ms");
+
+                // LOGGING
+                Logger.Write($"TIME {url} → {stopwatch.ElapsedMilliseconds} ms");
             }
             catch (Exception ex)
             {

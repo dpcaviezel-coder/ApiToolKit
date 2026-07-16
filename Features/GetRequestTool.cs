@@ -1,3 +1,4 @@
+
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -21,6 +22,9 @@ namespace ApiToolkit.Features
                 Console.WriteLine($"\nStatus: {response.StatusCode}");
                 Console.WriteLine("\nResponse:");
                 Console.WriteLine(content);
+
+                // LOGGING
+                Logger.Write($"GET {url} → {response.StatusCode}");
             }
             catch (Exception ex)
             {

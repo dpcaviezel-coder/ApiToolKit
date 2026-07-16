@@ -1,3 +1,4 @@
+
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -38,6 +39,9 @@ namespace ApiToolkit.Features
                 {
                     Console.WriteLine("\nResult: FAIL");
                 }
+
+                // LOGGING
+                Logger.Write($"VALIDATE {url} → Expected {expectedStatus}, Actual {actualStatus}");
             }
             catch (Exception ex)
             {

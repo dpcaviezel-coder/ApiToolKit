@@ -16,7 +16,6 @@ namespace ApiToolkit.Features
             string jsonBody = Console.ReadLine();
 
             using var client = new HttpClient();
-
             var content = new StringContent(jsonBody, Encoding.UTF8, "application/json");
 
             try
@@ -27,6 +26,9 @@ namespace ApiToolkit.Features
                 Console.WriteLine($"\nStatus: {response.StatusCode}");
                 Console.WriteLine("\nResponse:");
                 Console.WriteLine(responseBody);
+
+                // LOGGING
+                Logger.Write($"POST {url} → {response.StatusCode}");
             }
             catch (Exception ex)
             {

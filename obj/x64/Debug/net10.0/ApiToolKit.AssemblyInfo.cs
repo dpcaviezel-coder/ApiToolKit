@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ApiToolKit")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3a5ec38c58324b76f85e36f28f4fb0292ae65900")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1c9af2357ac625fd2d7599bff4a7fa56d9162696")]
 [assembly: System.Reflection.AssemblyProductAttribute("ApiToolKit")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ApiToolKit")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

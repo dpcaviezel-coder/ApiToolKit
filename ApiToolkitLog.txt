@@ -1,0 +1,2 @@
+[2026-07-16 12:30:39] TIME https://jsonplaceholder.typicode.com/users/1 → 240 ms
+[2026-07-16 12:31:22] TIME https://pokeapi.co/api/v2/pokemon/ditto → 239 ms
