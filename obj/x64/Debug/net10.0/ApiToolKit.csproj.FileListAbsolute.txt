@@ -1,0 +1,14 @@
+C:\Users\dpcav\source\repos\ApiToolKit\bin\x64\Debug\net10.0\ApiToolKit.exe
+C:\Users\dpcav\source\repos\ApiToolKit\bin\x64\Debug\net10.0\ApiToolKit.deps.json
+C:\Users\dpcav\source\repos\ApiToolKit\bin\x64\Debug\net10.0\ApiToolKit.runtimeconfig.json
+C:\Users\dpcav\source\repos\ApiToolKit\bin\x64\Debug\net10.0\ApiToolKit.dll
+C:\Users\dpcav\source\repos\ApiToolKit\bin\x64\Debug\net10.0\ApiToolKit.pdb
+C:\Users\dpcav\source\repos\ApiToolKit\obj\x64\Debug\net10.0\ApiToolKit.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\dpcav\source\repos\ApiToolKit\obj\x64\Debug\net10.0\ApiToolKit.AssemblyInfoInputs.cache
+C:\Users\dpcav\source\repos\ApiToolKit\obj\x64\Debug\net10.0\ApiToolKit.AssemblyInfo.cs
+C:\Users\dpcav\source\repos\ApiToolKit\obj\x64\Debug\net10.0\ApiToolKit.csproj.CoreCompileInputs.cache
+C:\Users\dpcav\source\repos\ApiToolKit\obj\x64\Debug\net10.0\ApiToolKit.dll
+C:\Users\dpcav\source\repos\ApiToolKit\obj\x64\Debug\net10.0\refint\ApiToolKit.dll
+C:\Users\dpcav\source\repos\ApiToolKit\obj\x64\Debug\net10.0\ApiToolKit.pdb
+C:\Users\dpcav\source\repos\ApiToolKit\obj\x64\Debug\net10.0\ApiToolKit.genruntimeconfig.cache
+C:\Users\dpcav\source\repos\ApiToolKit\obj\x64\Debug\net10.0\ref\ApiToolKit.dll
