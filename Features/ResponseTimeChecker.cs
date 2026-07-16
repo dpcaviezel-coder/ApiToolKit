@@ -1,4 +1,3 @@
-
 using System;
 using System.Diagnostics;
 using System.Net.Http;
@@ -30,6 +29,7 @@ namespace ApiToolkit.Features
 
                 var content = await response.Content.ReadAsStringAsync();
                 content = JsonFormatter.TryFormat(content);
+                ResponseSaver.LastResponse = content;
 
                 Console.WriteLine($"\nStatus: {response.StatusCode}");
                 Console.WriteLine($"Response Time: {stopwatch.ElapsedMilliseconds} ms");

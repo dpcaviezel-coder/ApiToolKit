@@ -17,6 +17,7 @@ class Program
             Console.WriteLine("5. View Log File");
             Console.WriteLine("6. Change Environment");
             Console.WriteLine("7. Manage Headers");
+            Console.WriteLine("8. Save Last Response");
             Console.WriteLine("0. Exit");
 
             Console.Write("Choose an option: ");
@@ -94,6 +95,10 @@ class Program
                     }
                     break;
 
+                case "8":
+                    ResponseSaver.Save();
+                    break;
+
                 case "0":
                     Console.WriteLine("Exiting...");
                     return;
@@ -105,4 +110,3 @@ class Program
         }
     }
 }
-

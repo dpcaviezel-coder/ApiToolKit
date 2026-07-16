@@ -1,5 +1,3 @@
-
-
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -26,6 +24,7 @@ namespace ApiToolkit.Features
                 var content = await response.Content.ReadAsStringAsync();
 
                 content = JsonFormatter.TryFormat(content);
+                ResponseSaver.LastResponse = content;
 
                 Console.WriteLine($"\nStatus: {response.StatusCode}");
                 Console.WriteLine("\nResponse:");
@@ -40,3 +39,4 @@ namespace ApiToolkit.Features
         }
     }
 }
+
